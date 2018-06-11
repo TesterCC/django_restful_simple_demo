@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from app01 import views
+from api.views import AuthView
+
+from app01.views import users, StudentsView
 
 urlpatterns = [
-    # url(r'^admin/', admin.site.urls),
-    url(r'^users/', views.users),      # FBV=Function Base View
-    url(r'^students/', views.StudentsView.as_view()),  # CBV=Class Base View
+    url(r'^admin/', admin.site.urls),
+    url(r'^api/v1/auth/$', AuthView.as_view()),
+    url(r'^users/', users),      # FBV=Function Base View
+    url(r'^students/', StudentsView.as_view()),  # CBV=Class Base View
 ]

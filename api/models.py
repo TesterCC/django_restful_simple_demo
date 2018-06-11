@@ -13,7 +13,7 @@ class UserInfo(models.Model):
         (3, 'SVIP'),
     )
     user_type = models.IntegerField(choices=user_type_choices)
-    user_name = models.CharField(max_length=32)
+    user_name = models.CharField(max_length=32, unique=True)    # 用户名不能重复，故要加唯一索引
     password = models.CharField(max_length=64)
 
 
