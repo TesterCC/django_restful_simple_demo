@@ -14,6 +14,7 @@ def users(request):
     return HttpResponse(json.dumps(user_list))
 
 
+# 继承（多个类共用的功能，为了避免重复重复编写）
 class MyBaseView(object):
     def dispatch(self, request, *args, **kwargs):
         print(">>>{}".format(request))
